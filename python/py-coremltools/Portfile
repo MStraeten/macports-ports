@@ -4,7 +4,7 @@ PortSystem          1.0
 PortGroup           python 1.0
 
 name                py-coremltools
-version             5.2.0
+version             9.0
 license             BSD
 maintainers         nomaintainer
 supported_archs     arm64 i386 x86_64
@@ -24,11 +24,11 @@ long_description    Core ML is an Apple framework that allows \
 
 homepage            https://github.com/apple/coremltools
 
-checksums           rmd160  55c3cac1f899491788414e4f469f6f0f3f33f364 \
-                    sha256  89666293ec6eed83ea39d68904416103a30abc8e6d8bfae610ed55e1a8599263 \
-                    size    936369
+checksums           rmd160  2f54b8b7b96c8f72932417f766dd41d23e06d157 \
+                    sha256  4ff346b29c31c4b45acd19a20e0f0a1ac65180a96776e62f15bd5c46f4926687 \
+                    size    1656978
 
-python.versions     310
+python.versions     310 311 312 313
 
 if {${name} ne ${subport}} {
     depends_build-append \
@@ -40,7 +40,9 @@ if {${name} ne ${subport}} {
                     port:py${python.version}-protobuf3 \
                     port:py${python.version}-sympy \
                     port:py${python.version}-tqdm \
-                    port:py${python.version}-packaging
+                    port:py${python.version}-packaging \
+                    port:py${python.version}-attrs \
+                    port:py${python.version}-cattrs
 
     compiler.cxx_standard   2017
 }
